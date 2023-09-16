@@ -32,6 +32,9 @@ def download_item(objname, BASEURL, BASEGITDIR):
         print(f"[-] Downloaded: {objname}")
         return
 
+    # Ensure that the directory path to the file exists
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+
     with open(target, 'wb') as f:
         f.write(response.content)
 
